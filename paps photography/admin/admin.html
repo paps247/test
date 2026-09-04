@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="../client/favicon.svg">
+    <title>Admin Dashboard - Paps Photography</title>
+    <!-- Link to global theme and fonts -->
+    <link rel="stylesheet" href="../client/client console.css">
+    <link rel="stylesheet" href="../client/invoice.css">
+    <!-- Link to admin-specific styles -->
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="../PHOTOGRAPHY.png" alt="Logo" class="logo">
+            <span class="logo-text">Menu</span>
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="#" class="active" data-target="overview">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.5 4.5a.75.75 0 00-1.5 0v.253a9.004 9.004 0 00-6.253 3.119.75.75 0 00.954 1.265 7.503 7.503 0 0111.598 0 .75.75 0 00.954-1.265A9.004 9.004 0 0012 4.753V4.5a.75.75 0 00-1.5 0v.253a9.004 9.004 0 00-6.253 3.119.75.75 0 00.954 1.265 7.503 7.503 0 0111.598 0 .75.75 0 00.954-1.265A9.004 9.004 0 0012 4.753V4.5zM6.25 10.655a7.503 7.503 0 0111.5 0 .75.75 0 00.967-1.26 9.003 9.003 0 00-13.434 0 .75.75 0 00.967 1.26zM12 15a.75.75 0 01.75.75v5.25a.75.75 0 01-1.5 0V15.75A.75.75 0 0112 15z" /></svg>
+                <span>Overview</span>
+            </a></li>
+            <li><a href="#" data-target="bookings">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zM5.25 6.75c-.828 0-1.5.672-1.5 1.5v11.25c0 .828.672 1.5 1.5 1.5h13.5c.828 0 1.5-.672 1.5-1.5V8.25c0-.828-.672-1.5-1.5-1.5H5.25z" clip-rule="evenodd" /></svg>
+                <span>Bookings</span>
+            </a></li>
+            <li><a href="#" data-target="clients">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18 18.75a3 3 0 00-3-3H9a3 3 0 00-3 3v.75h12v-.75zM12 12a3 3 0 110-6 3 3 0 010 6zM21 21.75v-.75a4.5 4.5 0 00-4.5-4.5H7.5a4.5 4.5 0 00-4.5 4.5v.75H21z" /></svg>
+                <span>Clients</span>
+            </a></li>
+            <li><a href="#" data-target="calendar">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M5.25 2.25A2.25 2.25 0 003 4.5v15A2.25 2.25 0 005.25 21.75h13.5A2.25 2.25 0 0021 19.5v-15A2.25 2.25 0 0018.75 2.25H5.25zM6 4.5a.75.75 0 01.75-.75h10.5a.75.75 0 01.75.75v3a.75.75 0 01-1.5 0V5.25H6.75v2.25a.75.75 0 01-1.5 0v-3z" clip-rule="evenodd" /></svg>
+                <span>Calendar</span>
+            </a></li>
+            <li><a href="#" data-target="portfolio">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 3.75a3 3 0 00-3 3v10.5a3 3 0 003 3h15a3 3 0 003-3V6.75a3 3 0 00-3-3h-15z" /><path d="M19.5 3.75a3 3 0 01-3 3V1.5a.75.75 0 011.5 0v2.25a3 3 0 011.5 0zM8.25 3.75a3 3 0 01-3 3V1.5a.75.75 0 011.5 0v2.25a3 3 0 011.5 0z" /></svg>
+                <span>Portfolio</span>
+            </a></li>
+            <li><a href="#" data-target="rate-card">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.5 18.75a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z" /><path fill-rule="evenodd" d="M8.625.75A3.375 3.375 0 005.25 4.125v15.75a3.375 3.375 0 003.375 3.375h6.75a3.375 3.375 0 003.375-3.375V4.125A3.375 3.375 0 0015.375.75h-6.75zM7.5 4.125a2.25 2.25 0 012.25-2.25h4.5a2.25 2.25 0 012.25 2.25v15.75a2.25 2.25 0 01-2.25 2.25h-4.5a2.25 2.25 0 01-2.25-2.25V4.125z" clip-rule="evenodd" /></svg>
+                <span>Rate Card</span>
+            </a></li>
+            <li><a href="#" data-target="invoices">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.25 4.533A9.707 9.707 0 006 3a9.735 9.735 0 00-3.25.555.75.75 0 00-.5.707v14.5a.75.75 0 00.5.707c1.12.328 2.25.555 3.25.555 3.587 0 6.5-2.866 6.5-6.429 0-1.337-.377-2.58-1.033-3.667zM16.5 3c-1.862 0-3.53.662-4.75 1.733A6.413 6.413 0 0118 9.571c0 3.563-2.913 6.429-6.5 6.429-1.12 0-2.25-.227-3.25-.555v-1.332c1.12.328 2.25.555 3.25.555 2.481 0 4.5-2.019 4.5-4.5 0-2.481-2.019-4.5-4.5-4.5z" /></svg>
+                <span>Invoices/Receipts</span>
+            </a></li>
+            <li><a href="#" data-target="finance">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7.5a.75.75 0 01.75.75v3.75h3.75a.75.75 0 010 1.5h-3.75V17a.75.75 0 01-1.5 0v-3.75H7.5a.75.75 0 010-1.5h3.75V8.25a.75.75 0 01.75-.75z" /><path fill-rule="evenodd" d="M3 3a.75.75 0 00-.75.75v16.5a.75.75 0 00.75.75h18a.75.75 0 00.75-.75V3.75a.75.75 0 00-.75-.75H3zm16.5 1.5H4.5v15h15V4.5z" clip-rule="evenodd" /></svg>
+                <span>Finance</span>
+            </a></li>
+            <li><a href="#" data-target="reviews">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" /></svg>
+                <span>Reviews/Feedback</span>
+            </a></li>
+            <li><a href="#" data-target="issues">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M11.078 2.25c-.917 0-1.699.663-1.943 1.572L6.73 12.5h10.54l-2.405-8.678c-.244-.91-1.026-1.572-1.943-1.572h-1.814zM12 15.375a.75.75 0 01.75.75v2.25h.75a.75.75 0 010 1.5h-3a.75.75 0 010-1.5h.75v-2.25a.75.75 0 01.75-.75z" clip-rule="evenodd" /><path d="M3 13.5a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" /></svg>
+                <span>Technical Issues</span>
+            </a></li>
+            <li><a href="#" data-target="settings">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 004.168 9.75a.75.75 0 01-1.49.158A10.47 10.47 0 019.528 1.718zM14.472 1.718a.75.75 0 01.819-.162A10.47 10.47 0 0121.332 9.908a.75.75 0 01-1.49-.158A8.97 8.97 0 0014.472 1.718zM12 2.25a.75.75 0 01.75.75v6a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM12 15a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5zM6.75 12a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0zM12.75 12a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0z" clip-rule="evenodd" /></svg>
+                <span>Settings</span>
+            </a></li>
+            <li><a href="#" id="logout-btn">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M7.5 3.75A1.5 1.5 0 006 5.25v13.5a1.5 1.5 0 001.5 1.5h6a1.5 1.5 0 001.5-1.5V15a.75.75 0 00-1.5 0v3.75a.75.75 0 01-.75.75h-6a.75.75 0 01-.75-.75V5.25a.75.75 0 01.75-.75h6a.75.75 0 01.75.75V9A.75.75 0 0015 9V5.25a1.5 1.5 0 00-1.5-1.5h-6zM18.75 12a.75.75 0 000-1.5h-6a.75.75 0 000 1.5h6z" clip-rule="evenodd" /><path d="M16.5 8.25a.75.75 0 00-1.06-1.06l-2.25 2.25a.75.75 0 000 1.06l2.25 2.25a.75.75 0 101.06-1.06L15.56 12l1.94-1.94z" /></svg>
+                <span>Logout</span>
+            </a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header class="main-header">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">☰</button>
+            <div class="header-actions">
+                <div class="user-info">
+                    <span>Welcome, paps</span>
+                </div>
+            </div>
+        </header>
+        <main class="content-area">
+            <!-- Overview Page -->
+            <section id="overview-page" class="admin-page">
+                <div class="page-header">
+                    <h1>Overview</h1>
+                </div>
+                <div class="summary-cards-container">
+                    <div class="summary-card">
+                        <div class="card-content">
+                            <span class="card-title">Total Revenue (Confirmed)</span>
+                            <span class="card-value" id="overview-total-revenue">GH₵0</span>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="card-content">
+                            <span class="card-title">Pending Bookings</span>
+                            <span class="card-value" id="overview-pending-bookings">0</span>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="card-content">
+                            <span class="card-title">Total Clients</span>
+                            <span class="card-value" id="overview-total-clients">0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-activity">
+                    <h2>Recent Bookings</h2>
+                    <div class="table-container">
+                        <table id="recent-bookings-table">
+                            <thead>
+                                <tr>
+                                    <th>Client Name</th>
+                                    <th>Service</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Recent bookings will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bookings Page -->
+            <section id="bookings-page" class="admin-page" style="display: none;">
+                <h1>Bookings</h1>
+                <div class="table-container">
+                    <table id="bookings-table">
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Name</th>
+                                <th>Service</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Booking data will be loaded here by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Other Pages (Placeholder) -->
+            <section id="clients-page" class="admin-page" style="display: none;">
+                <div class="page-header">
+                    <h1>Clients</h1>
+                </div>
+                <div class="table-container">
+                    <table id="clients-table">
+                        <thead>
+                            <tr>
+                                <th>Client Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Total Bookings</th>
+                                <th>Total Spent (GH₵)</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="calendar-page" class="admin-page" style="display: none;">
+                <div class="page-header">
+                    <h1 id="calendar-view-title">Calendar</h1>
+                    <button id="add-calendar-event-btn" class="btn-primary">Add Event</button>
+                    <button id="calendar-back-btn" class="btn-secondary" style="display: none;">← Back to Month View</button>
+                </div>
+
+                <!-- Month View -->
+                <div id="month-view-container">
+                    <div class="calendar-header">
+                        <button id="calendar-prev-month" class="btn-secondary">‹ Prev</button>
+                        <h2 id="calendar-month-year"></h2>
+                        <button id="calendar-next-month" class="btn-secondary">Next ›</button>
+                    </div>
+                    <div class="calendar-grid calendar-weekdays">
+                        <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                    </div>
+                    <div id="calendar-days-grid" class="calendar-grid"></div>
+                </div>
+
+                <!-- Day View -->
+                <div id="day-view-container" style="display: none;"></div>
+            </section>
+
+            <div id="calendar-event-modal" class="admin-modal">
+                <div class="modal-content">
+                    <span class="close-btn" id="calendar-event-modal-close">&times;</span>
+                    <h2 id="calendar-event-modal-title">Add Event</h2>
+                    <form id="calendar-event-form">
+                        <input type="hidden" id="calendar-event-id">
+                        <div class="form-group">
+                            <label for="calendar-event-title">Event Title</label>
+                            <input type="text" id="calendar-event-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="calendar-event-date">Date</label>
+                            <input type="date" id="calendar-event-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="calendar-event-time">Time</label>
+                            <input type="time" id="calendar-event-time">
+                        </div>
+                        <div class="form-group">
+                            <label for="calendar-event-notes">Notes</label>
+                            <textarea id="calendar-event-notes" rows="4" placeholder="Optional notes"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Save Event</button>
+                    </form>
+                </div>
+            </div>
+            <section id="portfolio-page" class="admin-page" style="display: none;">
+                <div class="page-header">
+                    <h1 id="portfolio-title">Portfolio Projects</h1>
+                    <button id="add-project-btn" class="btn-primary">Add New Project</button>
+                    <button id="back-to-projects-btn" class="btn-secondary" style="display: none;">← Back to Projects</button>
+                </div>
+                <div id="portfolio-projects-container">
+                    <!-- Project cards will be loaded here -->
+                </div>
+                <div id="portfolio-works-container" style="display: none;">
+                    <!-- Works/images for a selected project will be loaded here -->
+                </div>
+            </section>
+            <section id="rate-card-page" class="admin-page" style="display: none;">
+                <div class="page-header">
+                    <h1>Rate Card</h1>
+                    <button id="add-category-btn" class="btn-primary">Add Service Category</button>
+                </div>
+                <div id="rate-card-container">
+                    <!-- Service categories will be loaded here by JS -->
+                </div>
+            </section>
+            <section id="invoices-page" class="admin-page" style="display: none;">
+                <div class="page-header">
+                    <h1>Invoices & Receipts</h1>
+                    <button id="create-invoice-btn" class="btn-primary">Create New Invoice</button>
+                </div>
+                <div class="table-container">
+                    <table id="invoices-table">
+                        <thead>
+                            <tr>
+                                <th>Invoice ID</th>
+                                <th>Client Name</th>
+                                <th>Date</th>
+                                <th>Amount (GH₵)</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="finance-page" class="admin-page" style="display: none;">
+                <div class="page-header">
+                    <h1>Finance</h1>
+                </div>
+
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <span class="card-title">Total Revenue</span>
+                        <span class="card-value" id="finance-total-revenue">GH₵0</span>
+                    </div>
+                    <div class="overview-card">
+                        <span class="card-title">Outstanding</span>
+                        <span class="card-value" id="finance-outstanding">GH₵0</span>
+                    </div>
+                    <div class="overview-card">
+                        <span class="card-title">Awaiting Payment</span>
+                        <span class="card-value" id="finance-in-drafts">GH₵0</span>
+                    </div>
+                </div>
+
+                <div class="table-container" style="margin-top: 1.5rem;">
+                    <table id="finance-transactions-table">
+                        <thead>
+                            <tr>
+                                <th>Booking</th>
+                                <th>Client</th>
+                                <th>Service</th>
+                                <th>Due</th>
+                                <th>Paid</th>
+                                <th>Balance</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div id="finance-payment-modal" class="admin-modal">
+                <div class="modal-content">
+                    <span class="close-btn" id="finance-payment-modal-close">&times;</span>
+                    <h2>Record Payment</h2>
+                    <form id="finance-payment-form">
+                        <input type="hidden" id="finance-payment-booking-id">
+                        <div class="form-group">
+                            <label for="finance-payment-client">Client</label>
+                            <input type="text" id="finance-payment-client" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="finance-payment-amount-due">Amount Due</label>
+                            <input type="number" id="finance-payment-amount-due" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="finance-payment-amount-paid">Amount Received</label>
+                            <input type="number" id="finance-payment-amount-paid" min="0" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="finance-payment-method">Payment Method</label>
+                            <select id="finance-payment-method">
+                                <option value="Cash">Cash</option>
+                                <option value="Bank Transfer">Bank Transfer</option>
+                                <option value="Mobile Money">Mobile Money</option>
+                                <option value="Card">Card</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="finance-payment-date">Payment Date</label>
+                            <input type="date" id="finance-payment-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="finance-payment-notes">Notes</label>
+                            <textarea id="finance-payment-notes" rows="4" placeholder="Optional notes"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Save Payment</button>
+                    </form>
+                </div>
+            </div>
+
+            <section id="reviews-page" class="admin-page" style="display: none;">
+                <div class="page-header">
+                    <h1>Reviews & Feedback</h1>
+                </div>
+                <div class="review-tabs" aria-label="Review message categories">
+                    <button type="button" class="review-tab active" data-review-tab="all">All</button>
+                    <button type="button" class="review-tab" data-review-tab="review">Reviews</button>
+                    <button type="button" class="review-tab" data-review-tab="feedback">Feedback</button>
+                    <button type="button" class="review-tab" data-review-tab="inquiry">Enquiries</button>
+                    <button type="button" class="review-tab" data-review-tab="support">Support</button>
+                </div>
+                <div id="reviews-grid-container" class="reviews-grid-admin"></div>
+            </section>
+            <section id="issues-page" class="admin-page" style="display: none;">
+                <div class="page-header">
+                    <h1>Technical Issues</h1>
+                </div>
+                <div id="issues-grid-container" class="reviews-grid-admin"></div>
+            </section>
+            <section id="settings-page" class="admin-page" style="display: none;">
+                <div class="settings-container">
+                    <div class="settings-header">
+                        <h1>Settings</h1>
+                    </div>
+            
+                    <form id="settings-form">
+                        <!-- Personal Information Section -->
+                        <section class="settings-section">
+                            <h2>Personal Information</h2>
+            
+                            <div class="form-group">
+                                <label>Profile Picture</label>
+                                <div class="profile-picture-group">
+                                    <div class="profile-picture-preview" id="profile-picture-preview">
+                                        <img src="" alt="Avatar preview">
+                                    </div>
+                                    <input type="file" id="profile-picture-upload" accept="image/*" style="display: none;">
+                                    <button type="button" class="btn-secondary" onclick="document.getElementById('profile-picture-upload').click();">
+                                        Upload Image
+                                    </button>
+                                </div>
+                            </div>
+            
+                            <div class="form-group">
+                                <label for="full-name">Full Name</label>
+                                <input type="text" id="full-name" name="full-name" placeholder="e.g., John Doe">
+                            </div>
+            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="e.g., john.doe@example.com">
+                            </div>
+            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="e.g., +1234567890">
+                            </div>
+            
+                            <div class="form-group">
+                                <label for="website">Website/Portfolio URL</label>
+                                <input type="url" id="website" name="website" placeholder="e.g., https://yourportfolio.com">
+                            </div>
+            
+                            <div class="form-group">
+                                <label>Social Media Links</label>
+                                <input type="url" id="instagram" name="instagram" placeholder="Instagram URL">
+                                <input type="url" id="twitter" name="twitter" placeholder="Twitter/X URL" style="margin-top: 0.5rem;">
+                                <input type="url" id="facebook" name="facebook" placeholder="Facebook URL" style="margin-top: 0.5rem;">
+                            </div>
+                        </section>
+            
+                        <!-- Business Section -->
+                        <section class="settings-section">
+                            <h2>Business Details</h2>
+                            <div class="form-group">
+                                <label>Brand Logo</label>
+                                <div class="brand-logo-group">
+                                    <div class="brand-logo-preview" id="brand-logo-preview">
+                                        <img src="" alt="Logo preview">
+                                    </div>
+                                    <input type="file" id="brand-logo-upload" accept="image/*" style="display: none;">
+                                    <button type="button" class="btn-secondary" onclick="document.getElementById('brand-logo-upload').click();">
+                                        Upload Logo
+                                    </button>
+                                </div>
+                            </div>
+            
+                            <div class="form-group">
+                                <label for="brand-name">Brand Name</label>
+                                <input type="text" id="brand-name" name="brand-name" placeholder="e.g., Paps Photography">
+                            </div>
+            
+                            <div class="form-group">
+                                <label for="brand-tagline">Brand Tagline/Slogan</label>
+                                <input type="text" id="brand-tagline" name="brand-tagline" placeholder="e.g., Capturing Moments, Creating Memories">
+                            </div>
+                            <div class="form-group">
+                                <label for="about-us">About Us</label>
+                                <textarea id="about-us" name="about-us" rows="8" placeholder="Tell your customers about your business..."></textarea>
+                            </div>
+                        </section>
+            
+                        <!-- Time Availability Section -->
+                        <section class="settings-section">
+                            <h2>Time Availability</h2>
+                            <p>Set the days and time slots you are available for bookings.</p>
+                            <div class="availability-grid">
+                                <!-- Days will be generated by JS or can be hardcoded -->
+                                <div class="day-container" data-day="monday">
+                                    <div class="day-header">
+                                        <label for="monday-toggle">Monday</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="monday-toggle" class="availability-toggle">
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="time-slots">
+                                        <!-- Time slots will be added here -->
+                                    </div>
+                                    <button type="button" class="add-slot-btn" disabled>+</button>
+                                </div>
+                                <div class="day-container" data-day="tuesday">
+                                    <div class="day-header">
+                                        <label for="tuesday-toggle">Tuesday</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="tuesday-toggle" class="availability-toggle">
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="time-slots"></div>
+                                    <button type="button" class="add-slot-btn" disabled>+</button>
+                                </div>
+                                 <div class="day-container" data-day="wednesday">
+                                    <div class="day-header">
+                                        <label for="wednesday-toggle">Wednesday</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="wednesday-toggle" class="availability-toggle">
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="time-slots"></div>
+                                    <button type="button" class="add-slot-btn" disabled>+</button>
+                                </div>
+                                 <div class="day-container" data-day="thursday">
+                                    <div class="day-header">
+                                        <label for="thursday-toggle">Thursday</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="thursday-toggle" class="availability-toggle">
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="time-slots"></div>
+                                    <button type="button" class="add-slot-btn" disabled>+</button>
+                                </div>
+                                 <div class="day-container" data-day="friday">
+                                    <div class="day-header">
+                                        <label for="friday-toggle">Friday</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="friday-toggle" class="availability-toggle">
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="time-slots"></div>
+                                    <button type="button" class="add-slot-btn" disabled>+</button>
+                                </div>
+                                 <div class="day-container" data-day="saturday">
+                                    <div class="day-header">
+                                        <label for="saturday-toggle">Saturday</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="saturday-toggle" class="availability-toggle">
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="time-slots"></div>
+                                    <button type="button" class="add-slot-btn" disabled>+</button>
+                                </div>
+                                 <div class="day-container" data-day="sunday">
+                                    <div class="day-header">
+                                        <label for="sunday-toggle">Sunday</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="sunday-toggle" class="availability-toggle">
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="time-slots"></div>
+                                    <button type="button" class="add-slot-btn" disabled>+</button>
+                                </div>
+                            </div>
+                        </section>
+            
+                        <div class="settings-actions">
+                            <button type="submit" class="btn-primary">Save All Settings</button>
+                            <button type="button" id="reset-settings-btn" class="btn-danger">Reset Settings</button>
+                        </div>
+                    </form>
+
+                    <!-- Admin Account & Security -->
+                    <section class="settings-section account-security-section">
+                        <h2>Admin Account &amp; Security</h2>
+                        <p class="settings-note">Update the username and password used to log in to this admin panel. Your current password is required to save changes.</p>
+                        <form id="account-security-form">
+                            <div class="form-group">
+                                <label for="admin-current-username">Current Username</label>
+                                <input type="text" id="admin-current-username" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="admin-new-username">New Username</label>
+                                <input type="text" id="admin-new-username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="admin-current-password">Current Password</label>
+                                <input type="password" id="admin-current-password" required autocomplete="current-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="admin-new-password">New Password <small>(leave blank to keep current password)</small></label>
+                                <input type="password" id="admin-new-password" autocomplete="new-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="admin-confirm-password">Confirm New Password</label>
+                                <input type="password" id="admin-confirm-password" autocomplete="new-password">
+                            </div>
+                            <div class="settings-actions">
+                                <button type="submit" class="btn-primary">Update Login Details</button>
+                            </div>
+                            <p id="account-message" class="account-message"></p>
+                        </form>
+                    </section>
+
+                    <!-- Danger Zone: Reset All Data -->
+                    <section class="settings-section danger-zone-section">
+                        <h2>Danger Zone</h2>
+                        <p class="settings-note danger-note">Reset the entire database back to factory defaults. This will permanently delete all bookings, portfolio projects, messages, invoices, finance records and calendar events, and restore the default settings.</p>
+                        <div class="settings-actions">
+                            <button type="button" id="reset-all-data-btn" class="btn-danger reset-all-btn">Reset All Data</button>
+                        </div>
+                        <p id="reset-all-message" class="account-message"></p>
+                    </section>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="mobile-overlay"></div>
+
+    <!-- Modal for Viewing Invoice -->
+    <div id="invoice-view-modal" class="admin-modal">
+        <div class="modal-content" id="invoice-content-to-print">
+            <span class="close-btn" id="invoice-view-modal-close">&times;</span>
+            <div class="invoice-header">
+                <img src="../PHOTOGRAPHY.png" alt="Logo" class="logo">
+                <h2>Invoice</h2>
+            </div>
+            <div class="invoice-details">
+                <div>
+                    <strong>Billed To:</strong>
+                    <p id="invoice-client-name"></p>
+                </div>
+                <div>
+                    <strong>Invoice ID:</strong> <span id="invoice-id"></span><br>
+                    <strong>Date:</strong> <span id="invoice-date"></span>
+                </div>
+            </div>
+            <table class="invoice-table" id="invoice-items-table">
+                <thead><tr><th>Description</th><th>Amount</th></tr></thead>
+                <tbody></tbody>
+                <tfoot><tr><td>Total</td><td id="invoice-total-amount"></td></tr></tfoot>
+            </table>
+            <button id="print-invoice-btn" class="btn-primary no-print">Print Invoice</button>
+        </div>
+    </div>
+
+    <!-- Modal for Creating/Editing Invoice -->
+    <div id="invoice-form-modal" class="admin-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="invoice-form-modal-close">&times;</span>
+            <h2 id="invoice-form-title">Create Invoice</h2>
+            <form id="invoice-form">
+                <input type="hidden" id="invoice-edit-id">
+                <div class="form-group"><label for="invoice-form-client-name">Client Name</label><input type="text" id="invoice-form-client-name" required></div>
+                <div class="form-group"><label for="invoice-form-client-email">Client Email</label><input type="email" id="invoice-form-client-email"></div>
+                <div class="form-group"><label>Line Items</label><div id="invoice-line-items-container"></div><button type="button" id="add-line-item-btn" class="btn-secondary">Add Item</button></div>
+                <div class="form-group">
+                    <p>Total: <strong id="invoice-form-total">GH₵ 0.00</strong></p>
+                </div>
+                <button type="submit" class="btn-primary">Save as Draft</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Invoice Preview (embedded invoice markup) -->
+    <div id="invoice-preview-modal" class="admin-modal">
+        <div class="modal-content" style="width:90%;max-width:980px;max-height:90vh;overflow:auto;padding:0;">
+            <span class="close-btn" id="invoice-preview-modal-close">&times;</span>
+            <div id="invoice-preview-container" style="padding:28px;"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Discount -->
+    <div id="discount-modal" class="admin-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="discount-modal-close">&times;</span>
+            <h2 id="discount-modal-title">Apply Discount</h2>
+            <form id="discount-form">
+                <input type="hidden" id="discount-booking-id">
+                <div class="form-group">
+                    <label for="original-amount">Original Amount (GH₵)</label>
+                    <input type="text" id="original-amount" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="discount-percentage">Discount (%)</label>
+                    <input type="number" id="discount-percentage" min="0" max="100" step="1" required>
+                </div>
+                <p>New Amount: <strong id="new-amount-preview"></strong></p>
+                <button type="submit" class="btn-primary">Accept & Apply Discount</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Adding/Editing Projects -->
+    <div id="project-modal" class="admin-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="project-modal-close">&times;</span>
+            <h2 id="project-modal-title">Add New Project</h2>
+            <form id="project-form">
+                <input type="hidden" id="project-edit-id">
+                <div class="form-group">
+                    <label for="project-name">Project Name</label>
+                    <input type="text" id="project-name" required>
+                </div>
+                <button type="submit" class="btn-primary">Save Project</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Adding/Editing Works (Images) -->
+    <div id="work-modal" class="admin-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="work-modal-close">&times;</span>
+            <h2 id="work-modal-title">Add Image to Project</h2>
+            <form id="work-form">
+                <input type="hidden" id="work-edit-id">
+                <input type="hidden" id="work-parent-project-id">
+                <div class="form-group"><label for="work-image-file">Upload Image(s)</label><input type="file" id="work-image-file" accept="image/*" required multiple></div>
+                <button type="submit" class="btn-primary">Save Image</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Adding/Editing Rate Card Items -->
+    <div id="rate-card-modal" class="admin-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="rate-card-modal-close">&times;</span>
+            <h2 id="rate-card-modal-title">Add Service</h2>
+            <form id="rate-card-form">
+                <input type="hidden" id="edit-mode-id">
+                <input type="hidden" id="parent-category-id">
+                
+                <div class="form-group">
+                    <label for="item-type">Type</label>
+                    <select id="item-type">
+                        <option value="category">Service Category</option>
+                        <option value="service">Service Item</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="item-name">Name</label>
+                    <input type="text" id="item-name" required>
+                </div>
+                <div id="service-fields" style="display: none;">
+                    <div class="form-group"><label for="item-price">Price (GH₵)</label><input type="number" id="item-price"></div>
+                    <div class="form-group"><label for="item-description">Short Description</label><input type="text" id="item-description"></div>
+                    <div class="form-group"><label for="item-details">Details (one per line)</label><textarea id="item-details" rows="4"></textarea></div>
+                </div>
+                <div id="category-fields">
+                    <div class="form-group">
+                        <label for="category-description">Description</label>
+                        <textarea id="category-description" rows="5"></textarea>
+                    </div>
+                    <div class="form-group"><label for="item-terms">Terms & Conditions</label><textarea id="item-terms" rows="5"></textarea></div>
+                    <div class="form-group">
+                        <label for="item-cover-photo">Cover Photo</label>
+                        <input type="file" id="item-cover-photo" accept="image/*">
+                        <img id="cover-photo-preview" src="" alt="Cover photo preview" class="cover-photo-preview">
+                    </div>
+                    <div class="form-group">
+                        <label>Add-ons for this Category</label>
+                        <div id="item-addons-list" class="addons-list-container"></div>
+                        <div class="addon-input-group">
+                            <input type="text" id="new-addon-name" placeholder="Add-on Name (e.g., Extra Outfit)"><input type="number" id="new-addon-price" placeholder="Price"><button type="button" id="add-addon-btn" class="btn-secondary">Add</button>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html>

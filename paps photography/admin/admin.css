@@ -1,0 +1,1285 @@
+/*
+   Styles for the Paps Photography Admin Dashboard
+   Uses global theme variables from client console.css
+*/
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    color: var(--text-secondary);
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    transition: padding-left 0.3s ease;
+    overflow-x: hidden;
+}
+
+:root {
+    color-scheme: dark light;
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+    }
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+    width: 250px;
+    background-color: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    transition: transform 0.3s ease, width 0.3s ease;
+    z-index: 1001;
+}
+
+.sidebar-header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header .logo {
+    height: 35px;
+    width: auto;
+}
+
+.sidebar-header .logo-text {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 20px 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem; /* Smaller font for menu items */
+    white-space: nowrap;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-nav a:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.sidebar-nav a.active {
+    background-color: rgba(201, 167, 106, 0.1);
+    color: var(--accent-color);
+    border-right: 3px solid var(--accent-color);
+}
+
+.sidebar-nav .nav-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* --- MAIN CONTENT AREA --- */
+.main-content {
+    flex: 1 1 auto;
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    transition: margin-left 0.3s ease, width 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.main-header {
+    display: flex;
+   justify-content: flex-start; /* Align items to the start */
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    gap: 1rem;
+}
+
+.header-actions {
+    margin-left: auto; /* Pushes this group to the right */
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* Allow items to wrap on small screens */
+}
+
+.user-info {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.content-area {
+    padding: 30px;
+    flex-grow: 1;
+}
+
+.content-area h1 {
+    color: var(--text-primary);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--accent-text);
+    border: none;
+    box-shadow: 0 8px 18px rgba(201, 167, 106, 0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(201, 167, 106, 0.22);
+}
+
+.btn-secondary {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(201, 167, 106, 0.08);
+    border-color: rgba(201, 167, 106, 0.35);
+}
+
+/* --- COLLAPSED STATE --- */
+body.sidebar-collapsed .sidebar {
+    width: 70px;
+}
+
+body.sidebar-collapsed .sidebar-header .logo-text,
+body.sidebar-collapsed .sidebar-nav span {
+    display: none;
+}
+
+body.sidebar-collapsed .main-content {
+    margin-left: 70px;
+    width: calc(100% - 70px);
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 220px;
+    }
+
+    .main-content {
+        width: calc(100% - 220px);
+        margin-left: 220px;
+    }
+
+    body.sidebar-collapsed .main-content {
+        margin-left: 70px;
+        width: calc(100% - 70px);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .sidebar,
+    .main-header,
+    .table-container,
+    .summary-card,
+    .review-card-admin,
+    .project-card,
+    .rate-category-admin,
+    .admin-modal .modal-content,
+    .calendar-header,
+    .calendar-day,
+    .settings-card,
+    .day-view-event {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .btn-secondary {
+        background-color: #f5f5f5;
+        color: var(--text-primary);
+    }
+} 
+
+/* --- RESPONSIVE FOR MOBILE --- */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: min(82vw, 260px);
+        max-width: 260px;
+    }
+
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+        min-height: 100vh;
+    }
+
+    .content-area {
+        padding: 20px 16px;
+    }
+
+    .main-header {
+        padding: 12px 16px;
+    }
+
+    body.sidebar-open .sidebar {
+        transform: translateX(0);
+        box-shadow: 10px 0 30px var(--shadow-color);
+    }
+
+    /* Overlay for mobile when menu is open */
+    .mobile-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 1000;
+    }
+
+    body.sidebar-open .mobile-overlay {
+        display: block;
+    }
+
+    /* Hide collapsed styles on mobile */
+    body.sidebar-collapsed .sidebar,
+    body.sidebar-collapsed .main-content {
+        width: auto;
+        margin-left: 0;
+    }
+}
+
+/* --- Table Styles for Data Display --- */
+.table-container {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow-x: auto; /* For responsive tables */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+table th {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+table tbody tr:hover {
+    background-color: var(--bg-tertiary);
+}
+
+/* Status Indicator */
+.status-confirmed {
+    background-color: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.status-pending {
+    background-color: rgba(241, 196, 15, 0.15);
+    color: #f1c40f;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.status-declined {
+    background-color: rgba(231, 76, 60, 0.15);
+    color: #e74c3c;
+}
+
+.status-draft {
+    background-color: rgba(149, 165, 166, 0.15);
+    color: #95a5a6;
+}
+.status-sent {
+    background-color: rgba(52, 152, 219, 0.15);
+    color: #3498db;
+}
+.status-paid {
+    background-color: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+}
+/* --- Rate Card Admin Styles --- */
+.rate-category-admin {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    flex-wrap: wrap; /* Allow header items to wrap */
+}
+
+.category-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    flex-grow: 1;
+    color: var(--text-primary);
+}
+
+.category-actions, .service-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.settings-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.btn-secondary, .btn-danger {
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.8rem;
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary {
+    background-color: var(--bg-tertiary);
+    color: var(--text-secondary);
+}
+
+.btn-danger {
+    background-color: rgba(255, 107, 107, 0.1);
+    color: #ff6b6b;
+    border-color: rgba(255, 107, 107, 0.2);
+}
+
+.actions-cell {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.options-booking-btn {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 7px 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: background-color 0.2s ease;
+}
+
+.options-booking-btn:hover {
+    background-color: rgba(201, 167, 106, 0.12);
+}
+
+.actions-cell .btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.actions-cell .btn-icon:hover {
+    background-color: var(--bg-tertiary);
+}
+.actions-cell .btn-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.actions-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    z-index: 10;
+    min-width: 180px;
+    overflow: hidden;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.service-items-container {
+    padding: 1rem;
+}
+
+.service-item-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 6px;
+}
+
+.service-item-admin:not(:last-child) {
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.service-item-admin:hover {
+    background-color: var(--bg-tertiary);
+}
+
+.service-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-grow: 1; /* Allow info to take available space */
+}
+
+.service-cover-photo-thumb {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+}
+
+.service-info .service-addons-display {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    padding-left: 15px;
+}
+.service-info .service-addons-display ul {
+    padding-left: 1.2em; margin-top: 4px;
+}
+/* --- Admin Modal --- */
+.admin-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-modal .modal-content {
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    width: 95%;
+    max-width: 700px;
+    max-height: 95vh;
+    overflow: auto;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.admin-modal .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.cover-photo-preview {
+    max-width: 100px;
+    max-height: 100px;
+    margin-top: 10px;
+    border-radius: 6px;
+    display: none; /* Hidden by default */
+}
+
+/* Add-on specific styles */
+.addons-list-container {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin-bottom: 8px;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.addon-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border-color-light);
+}
+.addon-item:last-child {
+    border-bottom: none;
+}
+
+.addon-input-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap; /* Allow inputs to wrap on small screens */
+}
+.addon-input-group input[type="number"] {
+    max-width: 100px;
+}
+
+/* --- Portfolio Page Styles --- */
+#portfolio-projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card-thumbnail {
+    width: 100%;
+    height: 180px;
+    background-color: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+}
+
+.project-card-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-card-info {
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.project-card-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+}
+
+.project-card-actions {
+    padding: 0 1rem 1rem 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+#portfolio-works-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.work-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--bg-tertiary);
+}
+
+.work-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.work-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+}
+
+.work-card:hover .work-card-overlay {
+    opacity: 1;
+}
+
+.work-card-overlay .work-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+/* --- Settings Page Styles --- */
+.settings-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 800px;
+}
+
+/* --- Overview Page Styles --- */
+.summary-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.summary-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.summary-card:hover {
+    border-color: rgba(201, 167, 106, 0.5);
+    transform: translateY(-1px);
+}
+
+.summary-card .card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-card .card-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.summary-card .card-value {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.recent-activity h2 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* --- Calendar Page Styles --- */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+}
+
+.calendar-header h2 {
+    color: var(--text-primary);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.calendar-weekdays {
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.calendar-day {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    min-height: 100px;
+    padding: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    position: relative;
+    transition: background-color 0.2s;
+}
+
+.calendar-day.has-events {
+    cursor: pointer;
+}
+.calendar-day.has-events:hover {
+    background-color: var(--bg-tertiary);
+}
+
+.calendar-day.not-current-month {
+    opacity: 0.3;
+}
+
+.calendar-day .day-number {
+    margin-bottom: 5px;
+}
+
+.event-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.event-count {
+    font-size: 0.7rem;
+    color: var(--accent-color);
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+/* Day View */
+#day-view-container {
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+}
+.day-view-event {
+    padding: 1rem;
+    border-left: 3px solid var(--accent-color);
+    background-color: var(--bg-tertiary);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+.day-view-event strong {
+    color: var(--text-primary);
+}
+
+/* Booking Detail Card in Day View */
+.booking-detail-card {
+    border-left: 4px solid var(--accent-color);
+    background-color: var(--bg-secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.day-view-event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.day-view-event-header strong {
+    font-size: 1.1rem;
+}
+
+.day-view-event-header .status-confirmed,
+.day-view-event-header .status-paid {
+    color: #4CAF50;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(76, 175, 80, 0.1);
+}
+
+.day-view-event-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem 1rem;
+}
+
+.day-view-event-details p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.day-view-event-details p strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.review-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1rem 0 1.5rem;
+}
+
+.review-tab {
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-radius: 999px;
+    padding: 0.65rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.review-tab.active,
+.review-tab:hover {
+    background: var(--accent-color);
+    color: #111;
+    border-color: var(--accent-color);
+}
+
+/* --- Reviews Page Styles --- */
+.reviews-grid-admin {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.review-card-admin {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.review-card-admin .review-rating {
+    color: #f1c40f; /* Gold for stars */
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.review-card-admin .review-text {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.review-card-admin .review-author {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.review-card-admin .review-date {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.review-card-admin .review-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.review-card-admin .status-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+}
+
+/* --- Invoice Form Styles --- */
+.line-item-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.line-item-row input {
+    flex-grow: 1;
+}
+.line-item-row input[type="number"] {
+    max-width: 120px;
+    flex-grow: 0;
+}
+.line-item-row .btn-danger {
+    padding: 8px;
+}
+
+/* --- Invoice Modal Styles --- */
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+.invoice-header .logo { height: 40px; }
+.invoice-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; margin: 0; color: var(--text-primary); }
+
+.invoice-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+.invoice-details p { margin: 0; }
+
+.invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+.invoice-table th, .invoice-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+}
+.invoice-table thead th {
+    background-color: var(--bg-tertiary);
+}
+.invoice-table tfoot {
+    font-weight: bold;
+    color: var(--text-primary);
+}
+.invoice-table tfoot td {
+    border-bottom: none;
+}
+.invoice-table td:last-child, .invoice-table th:last-child {
+    text-align: right;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #invoice-content-to-print, #invoice-content-to-print * {
+        visibility: visible;
+    }
+    #invoice-content-to-print {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+    }
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* --- Calendar Page Styles --- */
+.calendar-container {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.calendar-header h2 {
+    color: var(--text-primary);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-weekdays {
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.calendar-day {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color-light);
+    border-radius: 6px;
+    min-height: 120px;
+    padding: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.calendar-day.not-current-month {
+    opacity: 0.4;
+    background-color: transparent;
+}
+
+.calendar-day.today .day-number {
+    background-color: var(--accent-color);
+    color: var(--accent-text);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-event {
+    background-color: rgba(201, 167, 106, 0.2);
+    color: var(--accent-color);
+    border-left: 3px solid var(--accent-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- ADDITIONAL MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    /* Calendar: shrink day cells on mobile */
+    .calendar-day {
+        min-height: 80px;
+        padding: 5px;
+        font-size: 0.7rem;
+    }
+
+    .calendar-weekdays {
+        font-size: 0.75rem;
+    }
+
+    /* Day view details grid stacks on mobile */
+    .day-view-event-details {
+        grid-template-columns: 1fr;
+    }
+
+    /* Reviews grid: single column on mobile */
+    .reviews-grid-admin {
+        grid-template-columns: 1fr;
+    }
+
+    .review-card-admin {
+        padding: 1rem;
+    }
+
+    /* Settings form: full-width inputs on mobile */
+    .settings-section .form-group input,
+    .settings-section .form-group textarea,
+    .settings-section .form-group select {
+        width: 100%;
+    }
+
+    /* Profile picture and brand logo preview on mobile */
+    .profile-picture-group,
+    .brand-logo-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Portfolio project cards on mobile */
+    #portfolio-projects-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Invoice header stacks on mobile */
+    .invoice-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .invoice-details {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Booking confirmation details stack on mobile */
+    .confirmation-details {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Filter buttons stack on mobile */
+    .review-tabs {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Day view event padding */
+    .day-view-event {
+        padding: 0.75rem;
+    }
+
+    .day-view-event-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    .day-view-event-header strong {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-area {
+        padding: 12px 10px;
+    }
+
+    .summary-cards-container,
+    .overview-grid {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .calendar-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .calendar-header button {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .table-container {
+        font-size: 0.75rem;
+    }
+}

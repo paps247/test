@@ -1,0 +1,286 @@
+/* styles.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+}
+
+.settings-container {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.settings-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.settings-header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.settings-section {
+    margin-bottom: 2.5rem;
+}
+
+.settings-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="url"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.profile-picture-group,
+.brand-logo-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.profile-picture-preview,
+.brand-logo-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.brand-logo-preview {
+    border-radius: 8px; /* Square preview for logos */
+}
+
+.profile-picture-preview img,
+.brand-logo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.availability-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.day-container {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.day-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.day-header label {
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Custom checkbox as a toggle switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #28a745;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+
+.time-slots {
+    margin-top: 1rem;
+}
+
+.time-slot {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.time-slot input {
+    width: 80px;
+}
+
+.add-slot-btn,
+.remove-slot-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
+.remove-slot-btn {
+    color: #dc3545;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* --- Admin Account & Security / Danger Zone --- */
+.settings-note {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin: -0.5rem 0 1.25rem;
+}
+
+.danger-note {
+    color: #b02a37;
+}
+
+.danger-zone-section {
+    border: 1px solid rgba(220, 53, 69, 0.35);
+    border-radius: 8px;
+    padding: 1.25rem;
+    background-color: rgba(220, 53, 69, 0.04);
+}
+
+.danger-zone-section h2 {
+    color: #b02a37;
+    border-bottom-color: rgba(220, 53, 69, 0.2);
+}
+
+.reset-all-btn {
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+}
+
+.account-security-section {
+    border-top: 2px solid #eee;
+    padding-top: 2rem;
+}
+
+.account-message {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    min-height: 1.1em;
+}
+
+.account-message-success {
+    color: #1a7f37;
+}
+
+.account-message-error {
+    color: #b02a37;
+}
+
+.account-security-section input[readonly] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.account-security-section small {
+    color: #6c757d;
+}

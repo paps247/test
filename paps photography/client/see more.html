@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our full photography portfolio at Paps Photography. View our stunning wedding, event, portrait, and family photography work. Filter by category to find your style.">
+    <meta name="keywords" content="photography portfolio, wedding photos, event photography, portrait gallery, Paps Photography, Ghana photographer, professional portfolio">
+    <meta name="author" content="Paps Photography">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://papsphotography.com/portfolio">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Portfolio - Paps Photography">
+    <meta property="og:description" content="Explore our full photography portfolio. View stunning wedding, event, portrait, and family photography work.">
+    <meta property="og:image" content="https://papsphotography.com/MFON4013.jpg">
+    <meta property="og:url" content="https://papsphotography.com/portfolio">
+    <meta property="og:site_name" content="Paps Photography">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Portfolio - Paps Photography">
+    <meta name="twitter:description" content="Explore our full photography portfolio. View stunning wedding, event, portrait, and family photography work.">
+    <meta name="twitter:image" content="https://papsphotography.com/MFON4013.jpg">
+    
+    <title>Portfolio - Wedding, Event & Portrait Photography | Paps Photography</title>
+    <link rel="stylesheet" href="portfolio.css">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ImageGallery",
+        "name": "Paps Photography Portfolio",
+        "description": "Explore our full photography portfolio featuring weddings, events, portraits, and family photography.",
+        "url": "https://papsphotography.com/portfolio",
+        "creator": {
+            "@type": "LocalBusiness",
+            "name": "Paps Photography",
+            "url": "https://papsphotography.com"
+        }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="logo">PAPS PHOTOGRAPHY</div>
+        <nav>
+            <a href="client console.html" class="btn-accent">Back to Home</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- FULL PORTFOLIO -->
+        <section class="portfolio-section full-portfolio">
+            <h2>Our Portfolio</h2>
+            <div class="filter-bar" id="portfolio-filter-bar">
+                <button class="filter-btn active" data-category="all">All</button>
+            </div>
+            <div id="full-portfolio-container">
+                <!-- JS will populate categorized projects here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer-bottom">
+        <p>&copy; 2024 Paps Photography. All Rights Reserved.</p>
+    </footer>
+
+    <!-- FULLSCREEN LIGHTBOX -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+        <span class="lightbox-close" title="Close (Esc)">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Fullscreen photo">
+        <a class="lightbox-prev" title="Previous (←)">&#10094;</a>
+        <a class="lightbox-next" title="Next (→)">&#10095;</a>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+
+    <button id="back-to-top-btn" title="Back to top">↑</button>
+
+    <script src="portfolio.js"></script>
+</body>
+</html>

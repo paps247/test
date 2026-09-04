@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paps Photography - Professional wedding, event, and portrait photography services. Capturing your most precious moments with artistry and passion. Book your session today.">
+    <meta name="keywords" content="photography, wedding photography, event photography, portrait photography, Paps Photography, Ghana photographer, professional photographer">
+    <meta name="author" content="Paps Photography">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://papsphotography.com/">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Paps Photography - Professional Photography Services">
+    <meta property="og:description" content="Professional wedding, event, and portrait photography services. Capturing your most precious moments with artistry and passion.">
+    <meta property="og:image" content="https://papsphotography.com/MFON4013.jpg">
+    <meta property="og:url" content="https://papsphotography.com/">
+    <meta property="og:site_name" content="Paps Photography">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Paps Photography - Professional Photography Services">
+    <meta name="twitter:description" content="Professional wedding, event, and portrait photography services. Capturing your most precious moments.">
+    <meta name="twitter:image" content="https://papsphotography.com/MFON4013.jpg">
+    
+    <title>Paps Photography - Professional Wedding, Event & Portrait Photography</title> 
+    <link rel="stylesheet" href="client console.css">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Paps Photography",
+        "description": "Professional wedding, event, and portrait photography services. Capturing your most precious moments with artistry and passion.",
+        "url": "https://papsphotography.com",
+        "logo": "https://papsphotography.com/PHOTOGRAPHY.png",
+        "image": "https://papsphotography.com/MFON4013.jpg",
+        "email": "hello@papsphotography.com",
+        "telephone": "+233000000000",
+        "priceRange": "₵₵",
+        "sameAs": [
+            "https://instagram.com/papsphotography",
+            "https://twitter.com/papsphotography",
+            "https://facebook.com/papsphotography"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GH"
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "08:00",
+            "closes": "20:00"
+        },
+        "makesOffer": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Wedding Photography"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Portrait Sessions"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Event Photography"
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="Navbar">
+        <div class="Brand logo">
+            <h1 id="brand-name-h1">Paps Photography</h1>
+        </div> 
+        <img src="PHOTOGRAPHY.png" alt="Paps Photography Logo" class="logo-img" id="brand-logo-img">
+        <button class="Status" id="track-status-btn">Track Status</button>
+    </nav>
+     <button class="fixed-action-btn" id="book-now-btn" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+        <span>Book Now</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-arrow">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+    </button>
+
+    <div class="hero-slider" id="hero-slider-container">
+        <!-- Hero slides will be dynamically loaded here by JavaScript -->
+    </div>
+
+    <section class="about-section">
+  <div class="about-container">
+    <div class="about-image-wrapper">
+      <img src="MFON4013.jpg" alt="Paps Photography">
+    </div>
+    
+    <div class="about-content">
+      <h2>ABOUT ME</h2>
+      <p id="about-me-p">I'm a web developer and graphic designer with 4+ years of experience. I specialize in building responsive websites and creating clean, professional designs that help businesses grow online.</p>
+      
+     
+    </div>
+  </div>
+</section>
+<!-- Portfolio Section -->
+<section class="portfolio-section">
+    <h3>&longleftarrow; Portfolio &longrightarrow;</h3>
+  <div class="portfolio-grid" id="main-portfolio-grid">
+    <!-- Portfolio images will be dynamically loaded here -->
+  </div>
+   <div class="button-wrapper">
+    <button class="btn-primary" onclick="window.location.href='see more.html'">See More</button>
+</div>
+</section>
+
+<section class="contact-section" id="contactSection">
+    <h2>Contact Us</h2>
+    <p class="contact-intro">Select a contact category below to send us a message.</p>
+
+    <div class="contact-category open" data-category="booking">
+        <div class="contact-category-header">
+            <span>📅 Booking Inquiry</span>
+        </div>
+        <div class="contact-form-wrapper">
+            <form class="contact-form" id="contactFormBooking">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <textarea placeholder="Tell us about the event you want to book..." rows="4" required></textarea>
+                <button class="btn-primary" type="submit">Send Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="contact-category" data-category="support">
+        <div class="contact-category-header">
+            <span>🛠️ Support / Technical Issue</span>
+        </div>
+        <div class="contact-form-wrapper">
+            <form class="contact-form" id="contactFormSupport">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="text" placeholder="Booking ID (if applicable)">
+                <textarea placeholder="Describe the issue you're experiencing..." rows="4" required></textarea>
+                <button class="btn-primary" type="submit">Send Report</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="contact-category" data-category="feedback">
+        <div class="contact-category-header">
+            <span>⭐ Feedback / Review</span>
+        </div>
+        <div class="contact-form-wrapper">
+            <form class="contact-form" id="contactFormFeedback">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <div class="rating-row">
+                    <span class="rating-star" data-rating="1">★</span>
+                    <span class="rating-star" data-rating="2">★</span>
+                    <span class="rating-star" data-rating="3">★</span>
+                    <span class="rating-star" data-rating="4">★</span>
+                    <span class="rating-star" data-rating="5">★</span>
+                </div>
+                <textarea placeholder="Share your experience with us..." rows="4" required></textarea>
+                <button class="btn-primary" type="submit">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+</section>
+<footer class="site-footer">
+    <div class="footer-content">
+        <p>&copy; 2026 Paps Photography. All rights reserved.</p>
+        <div class="footer-links" id="footer-links">
+            <a href="#">Instagram</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+    </div>
+</footer>
+
+<!-- Track Status Modal -->
+<div id="trackModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h5>Track Your Booking</h5> 
+    <input type="text" id="bookingInput" placeholder="Enter Booking Number" required>
+    <button id="searchBtn" class="btn-primary">Search</button>
+    <div id="bookingResult" style="display:none; margin-top: 20px; text-align: left;">
+      <p><strong>Booking Details:</strong></p>
+      <div id="detailsContent" style="margin-bottom: 20px;"></div>
+
+      <!-- Unified Review Form -->
+      <div id="reviewSection" style="display: none;">
+        <h5>Leave a Review</h5>
+        <form class="contact-form" id="trackReviewForm">
+            <div class="rating-row">
+                <span class="rating-star" data-rating="1">★</span>
+                <span class="rating-star" data-rating="2">★</span>
+                <span class="rating-star" data-rating="3">★</span>
+                <span class="rating-star" data-rating="4">★</span>
+                <span class="rating-star" data-rating="5">★</span>
+            </div>
+            <textarea id="reviewBox" placeholder="Share your experience with us..." rows="4" required></textarea>
+            <button id="submitReview" class="btn-primary" type="submit">Submit Review</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Booking Modal -->
+<div id="bookingModal" class="modal">
+  <div class="modal-content booking-modal-content">
+    <span class="close-btn booking-close">&times;</span>
+
+    <!-- Step 1: Service Categories -->
+    <div id="bookingStep1" class="booking-step">
+      <h5>Choose a Service</h5>
+      <p class="booking-subtitle">Click on a service to see more details and select add-ons.</p>
+      <div id="rate-card-container">
+        <!-- Service categories will be dynamically loaded here -->
+      </div>
+    </div>
+
+    <!-- Step 2: Terms & Conditions -->
+    <div id="bookingStep2" class="booking-step" style="display:none;">
+      <h5>Terms & Conditions</h5>
+      <p class="booking-subtitle" id="selectedServiceDisplay"></p>
+      <div class="terms-box">
+        <p><strong>1. Booking Confirmation:</strong> A non-refundable deposit of 50% is required to secure your booking date.</p>
+        <p><strong>2. Rescheduling:</strong> Rescheduling must be done at least 48 hours before the scheduled session.</p>
+        <p><strong>3. Cancellation:</strong> Cancellations made less than 24 hours before the session will forfeit the deposit.</p>
+        <p><strong>4. Photo Delivery:</strong> Edited photos will be delivered within 7-14 business days via a private online gallery.</p>
+        <p><strong>5. Usage Rights:</strong> Paps Photography retains the right to use images for portfolio and marketing purposes unless otherwise agreed.</p>
+        <p><strong>6. Liability:</strong> Paps Photography is not liable for any injuries or damages occurring during the photoshoot.</p>
+      </div>
+      <label class="terms-checkbox">
+        <input type="checkbox" id="agreeTerms">
+        <span>I have read and agree to the Terms & Conditions</span>
+      </label>
+      <button id="acceptTermsBtn" class="btn-primary" disabled>Continue to Booking</button>
+    </div>
+
+    <!-- Step 3: Booking Form -->
+    <div id="bookingStep3" class="booking-step" style="display:none;">
+      <h5>Complete Your Booking</h5>
+      <p class="booking-subtitle" id="bookingServiceDisplay"></p>
+      <form id="bookingForm" class="booking-form">
+        <input type="text" id="formName" placeholder="Full Name" required>
+        <input type="email" id="formEmail" placeholder="Email Address" required>
+        <input type="tel" id="formPhone" placeholder="Phone Number" required>
+        <input type="text" id="formLocation" placeholder="Event / Shoot Location" required>
+        <input type="date" id="formDate" required>
+        <select id="formTime" required>
+          <option value="" disabled selected>Select a time</option>
+          <option value="08:00">8:00 AM</option>
+          <option value="09:00">9:00 AM</option>
+          <option value="10:00">10:00 AM</option>
+          <option value="11:00">11:00 AM</option>
+          <option value="12:00">12:00 PM</option>
+          <option value="13:00">1:00 PM</option>
+          <option value="14:00">2:00 PM</option>
+          <option value="15:00">3:00 PM</option>
+          <option value="16:00">4:00 PM</option>
+          <option value="17:00">5:00 PM</option>
+        </select>
+        <textarea id="formMessage" placeholder="Additional details or special requests..." rows="4"></textarea>
+        <button type="submit" class="btn-primary" id="submitBookingBtn">Submit Booking</button>
+      </form>
+    </div>
+
+    <!-- Step 4: Confirmation -->
+    <div id="bookingStep4" class="booking-step" style="display:none;">
+      <div class="confirmation-icon">✅</div>
+      <h5>Booking Confirmed!</h5>
+      <div class="confirmation-details">
+        <p><strong>Service:</strong> <span id="confirmService"></span></p>
+        <p><strong>Name:</strong> <span id="confirmName"></span></p>
+        <p><strong>Email:</strong> <span id="confirmEmail"></span></p>
+        <p><strong>Location:</strong> <span id="confirmLocation"></span></p>
+        <p><strong>Date:</strong> <span id="confirmDate"></span></p>
+        <p><strong>Time:</strong> <span id="confirmTime"></span></p>
+      </div>
+      <div class="booking-id-box">
+        <p><strong>Booking ID:</strong></p>
+        <div class="booking-id-row">
+          <span id="bookingIdDisplay">Loading...</span>
+          <button id="copyBookingId" class="copy-btn" title="Copy Booking ID">📋</button>
+        </div>
+        <p class="booking-id-hint">Save this ID to track your booking status.</p>
+      </div>
+      <button id="closeBookingConfirm" class="btn-primary" style="margin-top:15px;">Done</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="client console.js"></script>
+</body>
+</html>

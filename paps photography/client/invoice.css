@@ -1,0 +1,53 @@
+.invoice-page{box-sizing:border-box;font-family:Inter,Segoe UI,Arial,sans-serif;background:#fafafa;color:#111;margin:0;padding:24px;display:flex;justify-content:center;width:100%;}
+.invoice-page .invoice-container{width:100%;max-width:900px}
+.invoice-card{background:#fff;border-radius:8px;padding:36px 40px;box-shadow:0 18px 40px rgba(16,24,40,0.08)}
+.inv-header{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.brand{display:flex;gap:18px;align-items:center}
+.brand-logo{width:96px;height:96px;object-fit:cover;border-radius:8px}
+.brand-info h1{margin:0;font-size:1.35rem;font-weight:600}
+.brand-info a{color:#6b7280;text-decoration:none;font-size:0.95rem}
+.invoice-meta{min-width:260px;text-align:right;background:linear-gradient(180deg,#fff,#fbfbfb);padding:8px 12px;border-radius:8px;border:1px solid #eee}
+.invoice-meta h2{margin:0;font-size:1.4rem;letter-spacing:1px;font-weight:700}
+.meta-row{display:flex;justify-content:space-between;color:#6b7280;margin-top:8px;font-size:0.95rem}
+.status-badge{display:inline-block;margin-top:12px;padding:6px 12px;border-radius:999px;background:#fde68a;color:#92400e;font-weight:700}
+.to-from{display:flex;justify-content:space-between;margin-top:22px;gap:16px}
+.to-from .from,.to-from .to{background:#fafafa;padding:12px;border:1px solid #f1f1f1;border-radius:8px;width:48%}
+.items{margin-top:18px}
+.items-table{width:100%;border-collapse:collapse}
+.items-table th{background:transparent;text-align:left;color:#666;padding:10px 8px;border-bottom:1px solid #eee}
+.items-table td{padding:12px 8px;border-bottom:1px solid #f6f6f6}
+.totals{display:flex;justify-content:space-between;align-items:flex-start;margin-top:18px;gap:16px}
+.totals-left{width:50%}
+.totals-right{width:45%;background:#fafafa;padding:12px;border-radius:8px;border:1px solid #f1f1f1}
+.tot-row{display:flex;justify-content:space-between;padding:6px 0;color:#444}
+.grand-total{display:flex;justify-content:space-between;padding:8px 0;font-size:1.05rem}
+.actions{display:flex;gap:12px;align-items:center;margin-top:20px}
+.btn-primary{background:#111;color:#fff;padding:10px 16px;border-radius:8px;border:0;cursor:pointer}
+.btn-secondary{background:#fff;border:1px solid #ddd;padding:9px 14px;border-radius:8px;cursor:pointer}
+.link-secondary{color:#111;text-decoration:none;padding-left:6px}
+.invoice-footer{margin-top:18px;color:#666}
+@media(max-width:720px){.inv-header{flex-direction:column;align-items:flex-start}.to-from{flex-direction:column}.to-from .from,.to-from .to{width:100%}.totals{flex-direction:column}.invoice-meta{text-align:left;width:100%}}
+
+/* Admin embedded preview overrides */
+#invoice-preview-container .invoice-page{padding:0;margin:0}
+#invoice-preview-container .invoice-card{max-width:100%;padding:20px;border-radius:8px;box-shadow:none;border:0}
+#invoice-preview-container .inv-header{gap:12px;padding-bottom:8px}
+
+/* Make action buttons stack on small screens */
+@media(max-width:720px){
+  #invoice-preview-container .actions{flex-direction:column;align-items:stretch}
+  #invoice-preview-container .actions .btn-primary,#invoice-preview-container .actions .btn-secondary{width:100%}
+}
+
+/* Responsive table: stack rows on small screens */
+@media (max-width:720px){
+  .items-table thead{display:none}
+  .items-table tbody tr{display:block;border:1px solid #f1f1f1;margin-bottom:10px;padding:10px;border-radius:8px;background:#fff}
+  .items-table tbody tr td{display:flex;justify-content:space-between;padding:8px 4px;border-bottom:none}
+  .items-table tbody tr td:nth-child(1)::before{content:"Service";color:#6b7280;margin-right:8px;font-weight:600}
+  .items-table tbody tr td:nth-child(2)::before{content:"Description";color:#6b7280;margin-right:8px;font-weight:600}
+  .items-table tbody tr td:nth-child(3)::before{content:"Qty";color:#6b7280;margin-right:8px;font-weight:600}
+  .items-table tbody tr td:nth-child(4)::before{content:"Unit";color:#6b7280;margin-right:8px;font-weight:600}
+  .items-table tbody tr td:nth-child(5)::before{content:"Discount";color:#6b7280;margin-right:8px;font-weight:600}
+  .items-table tbody tr td:nth-child(6)::before{content:"Total";color:#6b7280;margin-right:8px;font-weight:600}
+}

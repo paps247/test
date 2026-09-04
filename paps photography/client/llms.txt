@@ -1,0 +1,20 @@
+# Paps Photography
+
+## About
+Paps Photography is a professional photography service specializing in weddings, events, portraits, and more. Based in Ghana, we capture moments and create lasting memories.
+
+## Pages
+- **Home**: Main landing page with hero slider, about section, portfolio preview, and contact forms
+- **Portfolio**: Full portfolio gallery with filtering by project category
+
+## Contact
+- Email: hello@papsphotography.com
+- Instagram: https://instagram.com/papsphotography
+- Twitter: https://twitter.com/papsphotography
+- Facebook: https://facebook.com/papsphotography
+
+## Services
+- Wedding Photography
+- Portrait Sessions
+- Event Photography
+- Family Portraits
